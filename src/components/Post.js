@@ -1,19 +1,19 @@
 import React from 'react';
-import {Switch, Route, Link} from 'react-router-dom'
+import {Switch, Route, Link, withRouter} from 'react-router-dom'
 
 function Post(props) {
-    console.log("ass")
+
     return (
         <div>
             <Switch>
 
-                <Route path="profile/posts/:id" render={() => 
+                <Route path="/profile/:id" render={() => 
                 {
                     return(
                         <div>
+                            <button>Edit blog</button>
                             <h3>{props.postObj.title}</h3>
                             <p>{props.postObj.content}</p>
-                            <p>Hi</p>
                         </div>
                     )
                 }
@@ -23,7 +23,7 @@ function Post(props) {
                 {
                     return ( 
                         <div>
-                            <Link to={`profile/posts/${props.postObj._id}`} >
+                            <Link to={`profile/${props.postObj._id}`} style={{ textDecoration: 'none' }}>
                                 <h3>{props.postObj.title}</h3>
                             </Link>
                         </div>
@@ -36,4 +36,4 @@ function Post(props) {
     );
 }
 
-export default Post;
+export default withRouter(Post);

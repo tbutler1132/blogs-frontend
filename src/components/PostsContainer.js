@@ -12,7 +12,7 @@ function PostsContainer(props) {
     return (
         <div>
             <Switch>
-                <Route path="/profile/posts/:id" render={({match}) => {
+                <Route path="/profile/:id" render={({match}) => {
                     const id = match.params.id
                     const foundPost = props.currentUser.posts.find((post) => post._id === id)
                     return <Post postObj={foundPost} currentUser={props.currentUser}/>

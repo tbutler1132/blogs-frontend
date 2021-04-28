@@ -4,6 +4,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import Login from './components/Login'
 import Profile from './components/Profile'
+import NewBlog from './components/NewBlog'
 
 const BASE_API = 'http://localhost:5000'
 
@@ -45,18 +46,19 @@ function App() {
     })
   }
 
-  console.log(currentUser)
-
   return (
     <div className="App">
       <Switch>
         <Route path="/login" render={() => <Login loginHandler={loginHandler}/>} />
 
         {currentUser ?
+        <>
         <Route path="/profile" render={() => <Profile currentUser={currentUser}/> } />
+        <Route path="/posts/new" render={() => <NewBlog currentUser={currentUser}/> } />
+        </>
         :
         null}
-        
+
       </Switch>
     </div>
   );
