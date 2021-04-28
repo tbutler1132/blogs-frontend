@@ -1,5 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react'
+import {Switch, Route} from 'react-router-dom'
 
 import Login from './components/Login'
 import Profile from './components/Profile'
@@ -21,7 +22,6 @@ function App() {
       })
       .then(r => r.json())
       .then(data => {
-        console.log(data)
         setCurrentUser(data)
       })
       .catch(error => console.log(error))
@@ -49,11 +49,15 @@ function App() {
 
   return (
     <div className="App">
-      <Login loginHandler={loginHandler}/>
-      {currentUser ? 
-      <Profile currentUser={currentUser}/>
-      :
-      null}
+      <Switch>
+        <Route path="/login" render={() => <Login loginHandler={loginHandler}/>} />
+
+        {currentUser ?
+        <Route path="/profile" render={() => <Profile currentUser={currentUser}/> } />
+        :
+        null}
+        
+      </Switch>
     </div>
   );
 
