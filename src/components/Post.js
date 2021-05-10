@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Switch, Route, Link, withRouter} from 'react-router-dom'
 
+import EditPost from './EditPost'
+
 function Post(props) {
+
+    const [editing, toggleEditForm] = useState(false)
 
     const renderPostPreview = () => {
         if (props.postObj.content.length > 200){
@@ -18,12 +22,19 @@ function Post(props) {
                 <Route path="/profile/:id" render={() => 
                 {
                     return(
+                        <>
+                        {!editing ? 
                         <div className="blog-post">
                             <h3>{props.postObj.title}</h3>
                             <p>{props.postObj.content}</p>
                             {props.postObj.tags.map(tag => <p key={tag}>{tag}</p>)}
-                            <button>Edit blog</button>
+                            <button onClick={() => toggleEditForm(true)}>Edit blog</button>
+                            <button>Delete blog</button>
                         </div>
+                        :
+                        <EditPost postObj={props.postObj}/>
+                        }
+                        </>
                     )
                 }
                 }/> 
