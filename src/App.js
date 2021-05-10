@@ -1,6 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, withRouter} from 'react-router-dom'
 
 import Login from './components/Login'
 import Profile from './components/Profile'
@@ -65,4 +65,4 @@ function App() {
 
 }
 
-export default App;
+export default withRouter(App);

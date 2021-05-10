@@ -11,9 +11,9 @@ function Post(props) {
                 {
                     return(
                         <div>
-                            <button>Edit blog</button>
                             <h3>{props.postObj.title}</h3>
                             <p>{props.postObj.content}</p>
+                            <button>Edit blog</button>
                         </div>
                     )
                 }

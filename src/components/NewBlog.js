@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import TagsInput from './TagsInput'
+
 function NewBlog(props) {
 
     const [title, setTitle] = useState("")
@@ -15,6 +17,10 @@ function NewBlog(props) {
         setContent(e.target.value)
     }
 
+    const tagHandler = (tagArray) => {
+        setTags(tagArray)
+    }
+
     const submitHandler = (e) => {
         e.preventDefault()
         // const newPosts = [...props.currentUser.posts]
@@ -28,7 +34,7 @@ function NewBlog(props) {
             title: title,
             content: content
         }
-        fetch(`http://localhost:5000/users/update/posts/${props.currentUser._id}`, {
+        fetch(`http://localhost:5000/users/new/posts/${props.currentUser._id}`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -48,6 +54,7 @@ function NewBlog(props) {
                 <input type="text" value={title} onChange={titleHandler}/><br></br>
                 <label>Body</label>
                 <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
+                <TagsInput tagHandler={tagHandler}/>
                 <button type="submit">submit</button>
             </form>
         </div>
