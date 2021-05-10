@@ -3,6 +3,14 @@ import {Switch, Route, Link, withRouter} from 'react-router-dom'
 
 function Post(props) {
 
+    const renderPostPreview = () => {
+        if (props.postObj.content.length > 200){
+            return <p>{props.postObj.content.slice(0, 200)}...</p>
+        } else {
+            return <p>{props.postObj.content}</p>
+        }
+    }
+
     return (
         <div>
             <Switch>
@@ -10,7 +18,7 @@ function Post(props) {
                 <Route path="/profile/:id" render={() => 
                 {
                     return(
-                        <div>
+                        <div className="blog-post">
                             <h3>{props.postObj.title}</h3>
                             <p>{props.postObj.content}</p>
                             {props.postObj.tags.map(tag => <p key={tag}>{tag}</p>)}
@@ -23,10 +31,11 @@ function Post(props) {
                 <Route path="/profile" render={() =>
                 {
                     return ( 
-                        <div>
+                        <div className="blog-post-profile">
                             <Link to={`profile/${props.postObj._id}`} style={{ textDecoration: 'none' }}>
-                                <h3>{props.postObj.title}</h3>
+                                <h1>{props.postObj.title}</h1>
                             </Link>
+                                {renderPostPreview()}
                         </div>
                     )
                 }    

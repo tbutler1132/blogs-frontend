@@ -49,11 +49,9 @@ function NewBlog(props) {
 
 
     return (
-        <div>
+        <div className="new-blog-form">
             <form onSubmit={submitHandler}>
-                <label>Title</label>
                 <input type="text" value={title} onChange={titleHandler}/><br></br>
-                <label>Body</label>
                 <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
                 <TagsInput tags={tags} tagHandler={tagHandler}/>
                 <button type="submit">submit</button>
