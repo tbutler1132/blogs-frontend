@@ -6,7 +6,7 @@ function NewBlog(props) {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
-    const [tags, setTags] = useState(["test"])
+    const [tags, setTags] = useState([])
 
 
     const titleHandler = (e) => {
@@ -32,7 +32,8 @@ function NewBlog(props) {
 
         const newPost = {
             title: title,
-            content: content
+            content: content,
+            tags: tags
         }
         fetch(`http://localhost:5000/users/new/posts/${props.currentUser._id}`, {
             method: "POST",
@@ -54,7 +55,7 @@ function NewBlog(props) {
                 <input type="text" value={title} onChange={titleHandler}/><br></br>
                 <label>Body</label>
                 <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
-                <TagsInput tagHandler={tagHandler}/>
+                <TagsInput tags={tags} tagHandler={tagHandler}/>
                 <button type="submit">submit</button>
             </form>
         </div>

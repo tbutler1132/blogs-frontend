@@ -2,29 +2,34 @@ import React, {useState} from 'react';
 
 function TagsInput(props) {
 
-    const [tags, setTags] = useState([])
+    const [tag, setTag] = useState("")
+
+    const tagHandler = (e) => {
+        setTag(e.target.value)
+    }
 
     const inputKeyDown = (e) => {
-        const val = e.target.value
-        if (e.key === "Enter" && val){
-            setTags([...tags, val])
+        let val = e.target.value
+        if (e.code === "Space" && val){
+            props.tagHandler([...props.tags, val])
+            setTag("")
         }
-        if (tags.find(tag => tag.toLowerCase() === val.toLowerCase())) {
+        if (props.tags.find(tag => tag.toLowerCase() === val.toLowerCase())) {
             return;
           }
     }
 
     const removeTag = (i) => {
-        const newTags = [...tags]
+        const newTags = [...props.tags]
         newTags.splice(i, 1)
-        setTags(newTags)
+        props.tagHandler(newTags)
     }
 
     return (
         <div className="input-tag">
             <ul className="input-tag__tags">
 
-                {tags.map((tag, i) => (
+                {props.tags.map((tag, i) => (
                     <li key={tag}>
                         {tag}
                         <button type ="button" onClick={() => { removeTag(i) }}>+</button>
@@ -32,7 +37,7 @@ function TagsInput(props) {
                 ))}
 
                 <li className="input-tag__tags__input">
-                    <input type="text" onKeyDown={inputKeyDown} />
+                    <input onChange={tagHandler} value={tag} type="text" onKeyDown={inputKeyDown} />
                 </li>
 
             </ul>

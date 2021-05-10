@@ -13,6 +13,7 @@ function Post(props) {
                         <div>
                             <h3>{props.postObj.title}</h3>
                             <p>{props.postObj.content}</p>
+                            {props.postObj.tags.map(tag => <p key={tag}>{tag}</p>)}
                             <button>Edit blog</button>
                         </div>
                     )
