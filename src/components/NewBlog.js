@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {withRouter} from 'react-router-dom'
 
 import TagsInput from './TagsInput'
 
@@ -44,7 +45,10 @@ function NewBlog(props) {
               body: JSON.stringify(newPost)
             })
             .then(r => r.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                props.addPost(data)
+            })
     }
 
 
@@ -60,4 +64,4 @@ function NewBlog(props) {
     );
 }
 
-export default NewBlog;
+export default withRouter(NewBlog);

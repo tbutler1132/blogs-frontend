@@ -32,7 +32,7 @@ function Post(props) {
                             <button>Delete blog</button>
                         </div>
                         :
-                        <EditPost postObj={props.postObj}/>
+                        <EditPost toggleEdit={toggleEditForm} editPost={props.editPost} currentUser={props.currentUser} postObj={props.postObj}/>
                         }
                         </>
                     )

@@ -6,7 +6,7 @@ import Post from './Post'
 function PostsContainer(props) {
 
     const renderPosts = () => {
-        return props.currentUser.posts.map(post => <Post key={post._id} postObj={post}/>)
+        return props.currentUser.posts.map(post => <Post editPost={props.editPost} key={post._id} postObj={post}/>)
     }
 
     return (
@@ -15,7 +15,7 @@ function PostsContainer(props) {
                 <Route path="/profile/:id" render={({match}) => {
                     const id = match.params.id
                     const foundPost = props.currentUser.posts.find((post) => post._id === id)
-                    return <Post postObj={foundPost} currentUser={props.currentUser}/>
+                    return <Post editPost={props.editPost} postObj={foundPost} currentUser={props.currentUser}/>
                 }}/>
 
                 <Route path="/profile" render={() => 

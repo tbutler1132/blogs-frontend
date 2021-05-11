@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {withRouter} from 'react-router-dom'
 
 import TagsInput from './TagsInput'
 
@@ -23,6 +24,27 @@ function EditPost(props) {
 
     const submitHandler = (e) => {
         e.preventDefault()
+
+        const updatedPost = {
+            id: props.postObj._id,
+            title: title,
+            content: content,
+            tags: tags
+        }
+        fetch(`http://localhost:5000/users/edit/posts/${props.currentUser._id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+              },
+              body: JSON.stringify(updatedPost)
+            })
+            .then(r => r.json())
+            .then(data => {
+                props.editPost(data)
+                props.history.push("/profile")
+                }
+                )
     }
 
     return (
@@ -37,4 +59,4 @@ function EditPost(props) {
     );
 }
 
-export default EditPost;
+export default withRouter(EditPost);

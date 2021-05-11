@@ -46,6 +46,20 @@ function App() {
     })
   }
 
+  const editPost = (newPost) => {
+    const post = currentUser.posts.find(post => post._id == newPost._id)
+    console.log(post)
+    const postIndex = currentUser.posts.indexOf(post)
+    console.log(postIndex)
+    currentUser.posts.splice(postIndex, 1, newPost)
+    setCurrentUser(currentUser)
+  }
+
+  const addPost = (newPost) => {
+    currentUser.posts.push(newPost)
+    setCurrentUser(currentUser)
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -53,8 +67,8 @@ function App() {
 
         {currentUser ?
         <>
-        <Route path="/profile" render={() => <Profile currentUser={currentUser}/> } />
-        <Route path="/posts/new" render={() => <NewBlog currentUser={currentUser}/> } />
+        <Route path="/profile" render={() => <Profile editPost={editPost} currentUser={currentUser}/> } />
+        <Route path="/posts/new" render={() => <NewBlog addPost={addPost} currentUser={currentUser}/> } />
         </>
         :
         null}

@@ -18,7 +18,7 @@ function Profile(props) {
                 </Link>
             </div>
             <hr></hr>
-            <PostsContainer currentUser={props.currentUser}/>
+            <PostsContainer editPost={props.editPost} currentUser={props.currentUser}/>
         </div>
     );
 }
