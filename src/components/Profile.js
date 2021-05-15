@@ -7,7 +7,7 @@ function Profile(props) {
     return (
         <div>
             <div className="profile-header">
-                <h1>{props.currentUser.username}</h1>
+                <h1 onClick={() => props.history.push('/profile')} style={{cursor: "pointer"}}>{props.currentUser.username}</h1>
                 <h3>Blog Logo</h3>
                 <Link to="/posts/new" style={{ textDecoration: 'none', color: "red" }} className="new-btn">
                     

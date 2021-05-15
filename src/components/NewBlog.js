@@ -46,8 +46,8 @@ function NewBlog(props) {
             })
             .then(r => r.json())
             .then(data => {
-                console.log(data)
                 props.addPost(data)
+                props.history.push('/profile')
             })
     }
 

@@ -8,7 +8,7 @@ import NewBlog from './components/NewBlog'
 
 const BASE_API = 'http://localhost:5000'
 
-function App() {
+function App(props) {
 
   const [currentUser, setCurrentUser] = useState(false)
 
@@ -67,7 +67,7 @@ function App() {
 
         {currentUser ?
         <>
-        <Route path="/profile" render={() => <Profile editPost={editPost} currentUser={currentUser}/> } />
+        <Route path="/profile" render={() => <Profile history={props.history} editPost={editPost} currentUser={currentUser}/> } />
         <Route path="/posts/new" render={() => <NewBlog addPost={addPost} currentUser={currentUser}/> } />
         </>
         :

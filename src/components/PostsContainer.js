@@ -6,7 +6,13 @@ import Post from './Post'
 function PostsContainer(props) {
 
     const renderPosts = () => {
-        return props.currentUser.posts.map(post => <Post editPost={props.editPost} key={post._id} postObj={post}/>)
+        return props.currentUser.posts.reverse().map(post =>
+            <> 
+            <Post editPost={props.editPost} key={post._id} postObj={post}/>
+            <hr></hr>
+            </>
+            
+        )
     }
 
     return (
