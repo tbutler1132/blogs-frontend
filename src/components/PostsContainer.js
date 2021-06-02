@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route, Switch, withRouter} from 'react-router-dom'
+import Container from 'react-bootstrap/Container'
 
 import Post from './Post'
 
@@ -7,10 +8,9 @@ function PostsContainer(props) {
 
     const renderPosts = () => {
         return props.currentUser.posts.reverse().map(post =>
-            <> 
+            <div className="blog-post-container"> 
             <Post editPost={props.editPost} key={post._id} postObj={post}/>
-            <hr></hr>
-            </>
+            </div>
             
         )
     }
@@ -25,9 +25,9 @@ function PostsContainer(props) {
                 }}/>
 
                 <Route path="/profile" render={() => 
-                    <div>
+                    <Container className="blogs-container">
                         {renderPosts()}
-                    </div>
+                    </Container>
                 
                 } />
 

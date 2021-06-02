@@ -1,6 +1,7 @@
 import './App.css';
 import {useState, useEffect} from 'react'
 import {Switch, Route, withRouter} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Login from './components/Login'
 import Profile from './components/Profile'

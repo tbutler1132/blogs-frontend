@@ -104,3 +104,39 @@ body {
   padding: 0;
 }
 
+.profile-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.main-profile {
+  display: flex;
+}
+
+.posts-container-main {
+  width: 75%;
+}
+
+.user-info-main {
+  border: solid;
+  border-color: bisque;
+  border-width: thin;
+  padding-top: 2%;
+  margin-left: 1%;
+  width: 25%;
+}
+
+/* .blogs-container {
+  border: solid;
+} */
+
+.blog-post-container{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  margin-top: 5%;
+  border: solid;
+  border-color: antiquewhite;
+}
+

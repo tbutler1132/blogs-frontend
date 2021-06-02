@@ -46,6 +46,7 @@ function Post(props) {
                             <Link to={`profile/${props.postObj._id}`} style={{ textDecoration: 'none' }}>
                                 <h1>{props.postObj.title}</h1>
                             </Link>
+                            <p>Date goes here...</p>
                                 {renderPostPreview()}
                         </div>
                     )
