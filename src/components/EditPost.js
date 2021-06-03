@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import TagsInput from './TagsInput'
 
@@ -50,10 +51,14 @@ function EditPost(props) {
     return (
         <div>
             <form onSubmit={submitHandler}>
-                <input type="text" value={title} onChange={titleHandler}/><br></br>
+                <div className="new-blog-title">
+                    <input type="text" value={title} onChange={titleHandler}/><br></br>
+                </div>
                 <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
                 <TagsInput tags={tags} tagHandler={tagHandler}/>
-                <button type="submit">submit</button>
+                <div className="submit-blog-button">
+                    <Button type="submit">submit</Button>
+                </div>
             </form>
         </div>
     );

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Switch, Route, Link, withRouter} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import EditPost from './EditPost'
 
@@ -31,8 +32,14 @@ function Post(props) {
                             <div className="tags">
                                 {props.postObj.tags.map(tag => <p id="tag" key={tag}>#{tag}</p>)}
                             </div>
-                            <button onClick={() => toggleEditForm(true)}>Edit blog</button>
-                            <button>Delete blog</button>
+                            <div className="blog-buttons">
+                                <div className="blog-button">
+                                    <Button onClick={() => toggleEditForm(true)}>Edit</Button>
+                                </div>
+                                <div className="blog-button">
+                                    <Button>Delete</Button>
+                                </div>
+                            </div>
                         </div>
                         :
                         <EditPost toggleEdit={toggleEditForm} editPost={props.editPost} currentUser={props.currentUser} postObj={props.postObj}/>

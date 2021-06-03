@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Button} from 'react-bootstrap'
+import Button from 'react-bootstrap/Button'
 import blogLogo from '../assets/501b0742e7904c9c9d71f9e5114a705c.png'
 
 import PostsContainer from './PostsContainer'

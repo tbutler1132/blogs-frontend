@@ -146,10 +146,14 @@ body {
   margin-top: 5%;
   border: solid;
   border-color: antiquewhite;
+
 }
 
 .blog-post {
   height: 100%;
+  width: 90%;
+  border: solid;
+  overflow-y: auto;
 }
 
 .form-group{
@@ -197,3 +201,13 @@ img {
   cursor: pointer;
 }
 
+.blog-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-button{
+  margin-right: .5%;
+  margin-left: .5%;
+}

@@ -28,7 +28,7 @@ function Login(props) {
             <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email" value={username} onChange={userNameHandler}/>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" value={username} onChange={userNameHandler}/>
                 </div>
                 <div className="form-group">
                     <label for="exampleInputPassword1">Password</label>
