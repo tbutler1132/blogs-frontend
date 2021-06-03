@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+import Button from 'react-bootstrap/Button'
+
 function Login(props) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -18,16 +20,21 @@ function Login(props) {
             username: username,
             password: password
         })
+        props.history.push("/profile")
     }
 
     return (
-        <div>
+        <div className="login-form">
             <form onSubmit={submitHandler}>
-                <label>Username please</label>
-                <input value={username} onChange={userNameHandler}/>
-                <label>Password please</label>
-                <input value={password} onChange={passwordHandler}/>
-                <button type="submit">Submit</button>
+                <div className="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email" value={username} onChange={userNameHandler}/>
+                </div>
+                <div className="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value={password} onChange={passwordHandler}/>
+                </div>
+                <Button type="submit">Login</Button>
             </form>
         </div>
     );

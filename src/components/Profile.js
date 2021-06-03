@@ -11,14 +11,17 @@ function Profile(props) {
         <div>
             <div className="profile-header">
                 {/* <h1 onClick={() => props.history.push('/profile')} style={{cursor: "pointer"}}>User: {props.currentUser.username}</h1> */}
-                <img src={blogLogo} alt="" height="10%" width="10%"/>
+                <img onClick={() => props.history.push("/profile")} src={blogLogo} alt="" height="10%" width="10%"/>
                 <Link to="/posts/new" style={{ textDecoration: 'none', color: "red" }} className="new-btn">
                     
-                        <Button>
+                        <Button class="btn btn-success">
                             Add blog
                         </Button>
        
                 </Link>
+                <div className="logout-button">
+                    <Button class="btn btn-outline-secondary" onClick={props.logOutHandler}>Logout</Button>
+                </div>
             </div>
             <hr></hr>
             <div className="main-profile">

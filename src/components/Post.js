@@ -25,9 +25,12 @@ function Post(props) {
                         <>
                         {!editing ? 
                         <div className="blog-post">
-                            <h3>{props.postObj.title}</h3>
+                            <h1>{props.postObj.title}</h1>
                             <p>{props.postObj.content}</p>
-                            {props.postObj.tags.map(tag => <p key={tag}>{tag}</p>)}
+                            <hr></hr>
+                            <div className="tags">
+                                {props.postObj.tags.map(tag => <p id="tag" key={tag}>#{tag}</p>)}
+                            </div>
                             <button onClick={() => toggleEditForm(true)}>Edit blog</button>
                             <button>Delete blog</button>
                         </div>
@@ -48,6 +51,9 @@ function Post(props) {
                             </Link>
                             <p>Date goes here...</p>
                                 {renderPostPreview()}
+                                <div className="tags">
+                                {props.postObj.tags.map(tag => <p id="tag" key={tag}>#{tag}</p>)}
+                            </div>
                         </div>
                     )
                 }    

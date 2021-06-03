@@ -37,7 +37,7 @@ function TagsInput(props) {
                 ))}
 
                 <li className="input-tag__tags__input">
-                    <input onChange={tagHandler} value={tag} type="text" onKeyDown={inputKeyDown} />
+                    <input id="tags-input" placeholder="Add tags, press space to input" onChange={tagHandler} value={tag} type="text" onKeyDown={inputKeyDown} />
                 </li>
 
             </ul>

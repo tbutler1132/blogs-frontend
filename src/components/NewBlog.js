@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {withRouter} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 import TagsInput from './TagsInput'
 
@@ -55,10 +56,16 @@ function NewBlog(props) {
     return (
         <div className="new-blog-form">
             <form onSubmit={submitHandler}>
-                <input type="text" value={title} onChange={titleHandler}/><br></br>
-                <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
+                <div className="new-blog-title">
+                    <input id="title-input" placeholder="Title" type="text" value={title} onChange={titleHandler}/><br></br>
+                </div>
+                <div className="new-blog-body">
+                    <textarea type="text" cols="50" rows="50" value={content} onChange={contentHandler}/><br></br>
+                </div>
                 <TagsInput tags={tags} tagHandler={tagHandler}/>
-                <button type="submit">submit</button>
+                <div className="submit-blog-button">
+                    <Button type="submit">submit</Button>
+                </div>
             </form>
         </div>
     );

@@ -47,6 +47,12 @@ function App(props) {
     })
   }
 
+  const logOutHandler = () => {
+    localStorage.removeItem('token')
+    setCurrentUser(false)
+    props.history.push('/login')
+  }
+
   const editPost = (newPost) => {
     const post = currentUser.posts.find(post => post._id == newPost._id)
     console.log(post)
@@ -64,11 +70,11 @@ function App(props) {
   return (
     <div className="App">
       <Switch>
-        <Route path="/login" render={() => <Login loginHandler={loginHandler}/>} />
+        <Route path="/login" render={() => <Login history={props.history} loginHandler={loginHandler}/>} />
 
         {currentUser ?
         <>
-        <Route path="/profile" render={() => <Profile history={props.history} editPost={editPost} currentUser={currentUser}/> } />
+        <Route path="/profile" render={() => <Profile history={props.history} editPost={editPost} currentUser={currentUser} logOutHandler={logOutHandler}/> } />
         <Route path="/posts/new" render={() => <NewBlog addPost={addPost} currentUser={currentUser}/> } />
         </>
         :

@@ -9,7 +9,7 @@ function PostsContainer(props) {
     const renderPosts = () => {
         return props.currentUser.posts.reverse().map(post =>
             <div className="blog-post-container"> 
-            <Post editPost={props.editPost} key={post._id} postObj={post}/>
+                <Post editPost={props.editPost} key={post._id} postObj={post}/>
             </div>
             
         )
